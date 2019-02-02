@@ -11,8 +11,6 @@ class Screening
     @film_title = options['title']
     @film_time = options['showing_time']
     @film_id = options['film_id']
-    @total_seats = 100
-    @seats_available = 0
   end
 
   def save()
@@ -31,7 +29,7 @@ class Screening
     values = [@film_title,@film_time,@film_id,@id]
     SqlRunner.run(sql,values)
   end
-  
+
   def self.get_available_seats(film_id)
     sql = "SELECT title,COUNT(tickets.id) FROM films
         INNER JOIN tickets
@@ -65,7 +63,7 @@ class Screening
     end
   end
 
-  def self.return_most_sold
+  def self.return_most_sold_show_time
     sql = "SELECT showing_time FROM films
         INNER JOIN tickets
         ON tickets.film_id = films.id
