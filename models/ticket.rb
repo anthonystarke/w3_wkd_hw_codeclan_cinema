@@ -8,8 +8,6 @@ class Ticket
     @film_id = options['film_id']
   end
 
-
-
   def save()
     sql = "INSERT INTO tickets(customer_id,film_id)
     VALUES
@@ -30,18 +28,5 @@ class Ticket
     sql = "DELETE FROM tickets"
     SqlRunner.run(sql)
   end
-
-  def self.buy(customer,film)
-    if customer.funds > film.price
-      customer.reduce_money(film.price)
-      new_ticket = {
-        "customer_id" => customer.id,
-        "film_id" => film.id
-      }
-      return Ticket.new(new_ticket)
-    end
-    return false
-  end
-
 
 end

@@ -1,5 +1,6 @@
 require_relative("../db/SqlRunner.rb")
 require_relative("./film.rb")
+
 class Customer
 
   attr_reader :id, :funds
@@ -8,7 +9,7 @@ class Customer
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @funds = options['funds']
+    @funds = options['funds'].to_i
   end
 
   def reduce_money(value)
