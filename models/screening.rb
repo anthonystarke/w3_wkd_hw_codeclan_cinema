@@ -22,6 +22,12 @@ class Screening
     @id = SqlRunner.run(sql,values)[0]['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM screenings WHERE id = $1"
+    values = [@id]
+    Sqlrunner.run(sql,values)
+  end
+
   def update()
     sql = "UPDATE films
     SET (film_title,film_time,film_id) = ($1,$2,$3)
@@ -61,6 +67,12 @@ class Screening
     result.each do |film|
       p "Title: #{film.title} at #{film.showing_time}"
     end
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM screenings"
+    values = []
+    SqlRunner.run(sql,values)
   end
 
   def self.return_most_sold_show_time
