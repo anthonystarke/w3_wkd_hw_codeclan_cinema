@@ -25,15 +25,17 @@ class Customer
     return SqlRunner.run(sql,values).count
   end
 
-  def film()
-    sql = "SELECT * FROM films
-      INNER JOIN tickets
-      ON films.id = tickets.film_id
-      INNER JOIN customers
-      ON tickets.customer_id = $1;"
+  def films()
+    sql = "SELECT *
+        FROM films
+        INNER JOIN tickets
+        ON films.id = tickets.film_id
+        INNER JOIN customers
+        ON tickets.customer_id = customers.id
+        WHERE customers.id = $1;"
       values = [@id]
-    result = SqlRunner.run(sql,values)
-    return Film.new(result[0])
+    results = SqlRunner.run(sql,values)
+    return results.map {|film| Film.new(film)}
   end
 
   def save()

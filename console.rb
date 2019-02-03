@@ -49,7 +49,7 @@ film_4_details = {
 # customer_2 = Customer.new(customer_2_details)
 # customer_3 = Customer.new(customer_3_details)
 # customer_4 = Customer.new(customer_4_details)
-
+#
 # customer_1.save()
 # customer_2.save()
 # customer_3.save()
@@ -96,17 +96,17 @@ ticket_5_details = {
   "film_id" => film_2.id
 }
 
-ticket_1 = Ticket.new(ticket_1_details)
-ticket_2 = Ticket.new(ticket_2_details)
-ticket_3 = Ticket.new(ticket_3_details)
-ticket_4 = Ticket.new(ticket_4_details)
-ticket_5 = Ticket.new(ticket_5_details)
-
-ticket_1.save()
-ticket_2.save()
-ticket_3.save()
-ticket_4.save()
-ticket_5.save()
+# ticket_1 = Ticket.new(ticket_1_details)
+# ticket_2 = Ticket.new(ticket_2_details)
+# ticket_3 = Ticket.new(ticket_3_details)
+# ticket_4 = Ticket.new(ticket_4_details)
+# ticket_5 = Ticket.new(ticket_5_details)
+#
+# ticket_1.save()
+# ticket_2.save()
+# ticket_3.save()
+# ticket_4.save()
+# ticket_5.save()
 
 screening_1_details = {
   "title" => film_1.title,
